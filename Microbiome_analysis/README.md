@@ -3,12 +3,7 @@ This pipeline is based on QIIME2 2019.10
 And follows the Moving Pictures tutorial that can be found here. [Moving Picutres Tutorial](https://docs.qiime2.org/2019.10/tutorials/moving-pictures/)
 QIIME2 has very good documentation and almost all questions can be answered here. [QIIME2](https://qiime2.org/)
 
-#### **The scripts I have added here are to run QIIME2 analysis in the UCR cluster slurm framework.**
-This allow the user to run scripts in the background without having to wait for resources.
-
-## *Importing Data*
-To run this batch script you will need to create a directory with all of you sequence files in a fastq.gz. 
-
+## Tips
 Unless you edit the script the directory must be called **seqs**
 
 To use this script file names must be in the Casava format ex. SampleID_L001_R1_001.fastq.gz
@@ -16,7 +11,7 @@ To use this script file names must be in the Casava format ex. SampleID_L001_R1_
 For importing other formats of data see. [QIIME2 importing data](https://docs.qiime2.org/2019.10/tutorials/importing/)
 
 While QIIME2 version 2019.10 does not vary significantly for the most up to date version 
-it is always suggested that the most up-to-date version of the program is installed/
+it is always suggested that the most up-to-date version of the program is installed.
 
 ## **Getting into a QIIME environment:**  
 This is just a little trick to make sure that our cluster and QIIME2 are speaking the same language. 
@@ -28,7 +23,7 @@ export LANG=en_US.utf-8
 conda init bash
 source activate qiime2-2019.10
 ```
-## **Generating diversity metrics:**
+## ***Importing Data*:**
 ````
 qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]'   --input-path seqs/   --input-format CasavaOneEightSingleLanePerSampleDirFmt   --output-path demux-paired-end.qza
 
