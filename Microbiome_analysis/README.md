@@ -1,4 +1,4 @@
-# *QIIME2 Updated 4/21/20 (last edited 7/4/21)*
+# *QIIME2 Nasal Paper(last edited 7/4/21)*
 This pipeline is based on QIIME2 2019.10
 And follows the Moving Pictures tutorial that can be found here. [Moving Picutres Tutorial](https://docs.qiime2.org/2019.10/tutorials/moving-pictures/)
 QIIME2 has very good documentation and almost all questions can be answered here. [QIIME2](https://qiime2.org/)
