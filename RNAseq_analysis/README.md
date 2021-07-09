@@ -15,7 +15,7 @@ module load python/2.7.5
 trim_galore --paired --clip_R1 13 --three_prime_clip_R1 2 --clip_R2 13 --three_prime_clip_R2 2 --gzip -o ./ -q 30 -length 50 -fastqc ${ID}READ1.fastq.gz ${ID}READ2.fastq.gz
 ```
 
-*** Step 2 Alignment***
+***Step 2 Alignment***
 
 ```
 module load hisat2
@@ -32,9 +32,9 @@ hisat2 -p 40 -k 1 --min-intronlen 50 --max-intronlen 500000 -x /bigdata/messaoud
 samtools view -bS ./${ID}hisat/${ID}sam > ./${ID}hisat/accepted_hits.bam
 ```
 
-*** Step 3: Moving into and environment and Counting reads***
+***Step 3: Moving into and environment and Counting reads***
 
-Start R in the main directory and Load the required packages again
+- Start R in the main directory and Load the required packages again
 ```
 R
 library(systemPipeR)
@@ -77,14 +77,14 @@ rpkmDFeByg <- apply(countDFeByg, 2, function(x) returnRPKM(counts=x, ranges=eByg
 write.table(rpkmDFeByg, "results/rpkmDFeByg.xls", col.names=NA, quote=FALSE, sep="\t")
 ```
 
-*** Step 4 DEG analysis***
- DEG Analysis with EdgeR (target file edits can change comparison this should be done fore 2 group and 5 group) 
-Load libraries 
+***Step 4 DEG analysis***
+- DEG Analysis with EdgeR (target file edits can change comparison this should be done fore 2 group and 5 group) 
+- Load libraries 
 ```
 library(systemPipeR)
 library(edgeR)
 ```
-Read in raw counts 
+- Read in raw counts 
 ```
 countDF <- read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE)
 targets <- read.delim("targets.txt", comment="#")
